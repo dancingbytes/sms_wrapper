@@ -79,8 +79,12 @@ module SmsWrapper
 
         else
 
-          yield(active_gate, res)
-          return self
+          if block_given?
+            yield(active_gate, res)
+            return
+          else
+            return active_gate, res
+          end
 
         end # unless
 
@@ -98,14 +102,18 @@ module SmsWrapper
 
         else
 
-          yield(active_gate, res)
-          return self
+          if block_given?
+            yield(active_gate, res)
+            return
+          else
+            return active_gate, res
+          end
 
         end # unless
 
       end # each
 
-      self
+      nil
 
     end # message
 
