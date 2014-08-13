@@ -85,11 +85,11 @@ module SmsWrapper
       exist? ? @active_gate[:klass].to_s : ''
     end # name
 
-    private
-
     def exist?
       !@active_gate.nil?
     end # exist?
+
+    private
 
     def gate
 
