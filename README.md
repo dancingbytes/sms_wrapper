@@ -18,11 +18,11 @@ Add this line to your application's Gemfile:
 
     SMS.default SmsRu
 
-  # Send sms (gem choose gate automatically)
+  ## Send sms (gem choose gate automatically)
 
     SMS.message('79994447733', 'Hello World')
 
-  # or
+  ## or
 
     SMS.new(IbateleSms).message('79994447733', 'Hello World')
     SMS.new(IbateleSms).state('08766666')
