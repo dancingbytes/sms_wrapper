@@ -103,7 +103,7 @@ module SmsWrapper
 
       end # each
 
-      active_gate, last_error
+      return active_gate, last_error
 
     end # message
 
