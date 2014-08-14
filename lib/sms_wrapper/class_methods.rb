@@ -70,7 +70,7 @@ module SmsWrapper
 
       if exists?
 
-        res = active_gate.message(args)
+        res = active_gate.send(:message, *args)
 
         if active_gate.error?(res)
 
@@ -93,7 +93,7 @@ module SmsWrapper
       gates.each do |klass, value|
 
         use_gate(klass)
-        res = active_gate.message(args)
+        res = active_gate.send(:message, *args)
 
         if active_gate.error?(res)
 
