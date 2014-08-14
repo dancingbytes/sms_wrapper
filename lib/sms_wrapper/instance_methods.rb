@@ -3,7 +3,7 @@ module SmsWrapper
 
   module InstanceMethods
 
-    def initialize(sms_class, silent = false)
+    def initialize(sms_class, silent = true)
 
       @active_gate = self.class.get(sms_class)
 
