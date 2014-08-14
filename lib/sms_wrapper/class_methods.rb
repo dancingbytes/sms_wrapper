@@ -77,11 +77,11 @@ module SmsWrapper
         if active_gate.error?(res)
 
           last_error = res
-          puts "[SMS]. Ошибка при отправки сообщения (#{active_gate.name})"
+          puts "[SMS]. Ошибка при отправки сообщения (#{active_gate_name})"
           puts "[SMS]. #{res.inspect}"
 
         else
-          return active_gate.name, res
+          return active_gate_name, res
         end # unless
 
       end # if
@@ -94,16 +94,16 @@ module SmsWrapper
         if active_gate.error?(res)
 
           last_error = res
-          puts "[SMS]. Ошибка при отправки сообщения (#{active_gate.name})"
+          puts "[SMS]. Ошибка при отправки сообщения (#{active_gate_name})"
           puts "[SMS]. #{res.inspect}"
 
         else
-          return active_gate.name, res
+          return active_gate_name, res
         end # unless
 
       end # each
 
-      return active_gate.name, last_error
+      return active_gate_name, last_error
 
     end # message
 
@@ -112,6 +112,10 @@ module SmsWrapper
     end # error?
 
     private
+
+    def active_gate_name
+      exists? ? active_gate.name : nil
+    end # active_gate_name
 
     def use_gate(klass)
 
