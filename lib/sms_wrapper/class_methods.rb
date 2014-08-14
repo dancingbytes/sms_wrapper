@@ -98,12 +98,12 @@ module SmsWrapper
           puts "[SMS]. #{res.inspect}"
 
         else
-          return active_gate, res
+          return active_gate.name, res
         end # unless
 
       end # each
 
-      return active_gate, last_error
+      return active_gate.name, last_error
 
     end # message
 
