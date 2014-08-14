@@ -80,10 +80,10 @@ module SmsWrapper
         else
 
           if block_given?
-            yield(active_gate, res)
+            yield(active_gate.name, res)
             return
           else
-            return active_gate, res
+            return active_gate.name, res
           end
 
         end # unless
