@@ -68,24 +68,20 @@ module SmsWrapper
 
     def message(*args)
 
+      last_error = nil
+
       if exists?
 
         res = active_gate.send(:message, *args)
 
         if active_gate.error?(res)
 
+          last_error = res
           puts "[SMS]. Ошибка при отправки сообщения (#{active_gate.name})"
           puts "[SMS]. #{res.inspect}"
 
         else
-
-          if block_given?
-            yield(active_gate.name, res)
-            return
-          else
-            return active_gate.name, res
-          end
-
+          return active_gate.name, res
         end # unless
 
       end # if
@@ -97,23 +93,17 @@ module SmsWrapper
 
         if active_gate.error?(res)
 
+          last_error = res
           puts "[SMS]. Ошибка при отправки сообщения (#{active_gate.name})"
           puts "[SMS]. #{res.inspect}"
 
         else
-
-          if block_given?
-            yield(active_gate, res)
-            return
-          else
-            return active_gate, res
-          end
-
+          return active_gate, res
         end # unless
 
       end # each
 
-      nil
+      active_gate, last_error
 
     end # message
 
