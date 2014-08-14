@@ -74,7 +74,7 @@ module SmsWrapper
 
         if active_gate.error?(res)
 
-          puts "[SMS]. Ошибка при оправки сообщения (#{active_gate.name})"
+          puts "[SMS]. Ошибка при отправки сообщения (#{active_gate.name})"
           puts "[SMS]. #{res.inspect}"
 
         else
@@ -97,7 +97,7 @@ module SmsWrapper
 
         if active_gate.error?(res)
 
-          puts "[SMS]. Ошибка при оправки сообщения (#{active_gate.name})"
+          puts "[SMS]. Ошибка при отправки сообщения (#{active_gate.name})"
           puts "[SMS]. #{res.inspect}"
 
         else
