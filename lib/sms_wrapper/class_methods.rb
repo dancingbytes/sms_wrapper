@@ -15,6 +15,10 @@ module SmsWrapper
 
     end # gate
 
+    def list
+      gates.keys
+    end # list
+
     def default(klass)
 
       use_gate(klass)
