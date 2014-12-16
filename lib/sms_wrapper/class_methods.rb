@@ -112,7 +112,7 @@ module SmsWrapper
     end # message
 
     def error?(req)
-      exists? ? active_gate.error?(req) : req.is_a?(::StandardError)
+      req.is_a?(::StandardError)
     end # error?
 
     private
